@@ -2,28 +2,28 @@ import { ArrowRightIcon, ClockIcon, GiftIcon, PlaneIcon } from './icons';
 
 const deals = [
     {
-        title: '주말 예식 직후 황금 출발',
+        title: '주말 예식 골든타임',
         description: [
-            '가장 먼저 마감되는 인기 항공 시간대예요.',
-            '남은 잔여 좌석을 실시간으로 먼저 확인하세요.',
+            '가장 먼저 마감되는 인기 예식 시간대예요.',
+            '남은 잔여 홀을 실시간으로 먼저 확인하세요.',
         ],
-        benefit: '예약 시 리조트·풀빌라 최대 100만원 지원',
+        benefit: '예약 시 웨딩홀 대관료 최대 100만원 지원',
     },
     {
         title: '봄·가을 웨딩 성수기 특가',
         description: [
-            '성수기 인기 신혼여행지는 빠르게 마감돼요.',
-            '항공권과 적용 가능한 리조트 특가를 정리해드려요.',
+            '성수기 인기 웨딩홀은 빠르게 마감돼요.',
+            '예식일별 적용 가능한 홀 특가를 정리해드려요.',
         ],
-        benefit: '객실 업그레이드 + 허니문 스냅 촬영 제공',
+        benefit: '식사 업그레이드 + 웨딩 스냅 촬영 제공',
     },
     {
         title: '얼리버드·비수기 알뜰 특가',
         description: [
-            '가장 먼저 마감되는 인기 항공 시간대예요.',
-            '남은 잔여 좌석을 실시간으로 먼저 확인하세요.',
+            '가장 먼저 마감되는 인기 예식 시간대예요.',
+            '남은 잔여 홀을 실시간으로 먼저 확인하세요.',
         ],
-        benefit: '식사 할인 + 단독 투어 추가 제휴 혜택',
+        benefit: '식사 할인 + 웨딩 소품 추가 제휴 혜택',
     },
 ];
 
@@ -35,12 +35,12 @@ export function DealsSection() {
                     2027 LIMITED
                 </p>
                 <h2 className="mt-4 text-4xl font-extrabold text-gray-900 md:text-5xl">
-                    2027 <span className="text-brand">잔여좌석</span> 특가혜택
+                    2027 <span className="text-brand">얼리버드</span> 특가혜택
                 </h2>
                 <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-gray-500 md:text-base">
-                    인기 시즌·주말 출발 항공권은 빠르게 마감돼요.
+                    인기 시즌·주말 예식 홀은 빠르게 마감돼요.
                     <br />
-                    남은 좌석 한정 특가 혜택을 실시간으로 먼저 확인하세요.
+                    남은 홀 한정 특가 혜택을 실시간으로 먼저 확인하세요.
                 </p>
 
                 <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white">
@@ -84,7 +84,7 @@ export function DealsSection() {
                                 href="#"
                                 className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand transition-colors hover:text-brand-dark"
                             >
-                                잔여좌석 확인
+                                잔여 홀 확인
                                 <ArrowRightIcon className="h-4 w-4" />
                             </a>
                         </div>

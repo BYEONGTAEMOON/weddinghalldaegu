@@ -17,14 +17,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: 'honeymoon scan go',
-    description: 'honeymoon lets go',
+    title: '웨딩홀스캔GO 대구',
+    description: '대구 웨딩홀 비교 견적 스캔 서비스',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
     return (
         <html
-            lang="en"
+            lang="ko"
             className={`${pretendard.variable} ${geistMono.variable} h-full antialiased`}
         >
             <body className="min-h-full flex flex-col">

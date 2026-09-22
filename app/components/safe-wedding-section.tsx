@@ -2,37 +2,37 @@ import Image from 'next/image';
 
 const cards = [
     {
-        slug: 'meritz-tower',
-        stat: '총 10억 원',
-        label: '공제영업보증 가입',
-        image: 'https://banhanatour.kr/images/honeymoonscango/safe_01.jpg',
+        slug: 'coverage',
+        stat: '대구·구미·경산 7개 지역',
+        label: '지역 커버리지',
+        image: 'https://picsum.photos/seed/wedding-safe-01/600/800',
     },
     {
-        slug: 'sgi-seoul-guarantee',
-        stat: '총 1억 원',
-        label: '영업배상책임보험 가입',
-        image: 'https://banhanatour.kr/images/honeymoonscango/safe_02.jpg',
+        slug: 'database',
+        stat: '누적 500+',
+        label: '웨딩홀 데이터 확보',
+        image: 'https://picsum.photos/seed/wedding-safe-02/600/800',
     },
     {
-        slug: 'banhana-office',
-        stat: '11년 연속',
-        label: '정상 영업 & 무사고',
-        image: 'https://banhanatour.kr/images/honeymoonscango/safe_03.jpg',
+        slug: 'response',
+        stat: '평균 1일 이내',
+        label: '맞춤 견적 회신',
+        image: 'https://picsum.photos/seed/wedding-safe-03/600/800',
     },
 ];
 
-export function SafeHoneySection() {
+export function SafeWeddingSection() {
     return (
         <section className="border-t border-gray-100 px-6 py-20 md:px-10 md:py-28">
             <div className="mx-auto max-w-3xl text-center">
                 <h2 className="text-4xl font-extrabold leading-snug text-gray-900 md:text-5xl">
-                    안전한 <span className="text-brand">허니문</span>을 위한
+                    안전한 <span className="text-brand">웨딩홀 선택</span>을 위한
                     <br />
-                    11년을 함께 한 <span className="text-brand">반하나투어</span>
+                    대구 1등 <span className="text-brand">웨딩홀스캔GO</span>
                 </h2>
 
                 <p className="mt-3 text-xl font-bold text-gray-900">
-                    Safe Honey <span className="text-brand">BanhanaTour</span>
+                    Safe Wedding <span className="text-brand">ScanGo</span>
                 </p>
             </div>
 

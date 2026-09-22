@@ -14,20 +14,20 @@ type DestinationSectionProps = {
     resorts: DestinationResort[];
 };
 
-export function DestinationSection({ id, destination, tagline = '오션뷰. 풀빌라. 리조트.', resorts }: DestinationSectionProps) {
+export function DestinationSection({ id, destination, tagline = '컨벤션. 웨딩홀.', resorts }: DestinationSectionProps) {
     return (
         <section id={id} className="scroll-mt-20 border-t border-gray-100 px-6 py-20 md:px-10 md:py-28">
             <div className="mx-auto max-w-2xl text-center">
-                <p className="text-sm font-medium tracking-[0.2em] text-gray-400">POOL VILLA & LUXURY STAY</p>
+                <p className="text-sm font-medium tracking-[0.2em] text-gray-400">PREMIUM WEDDING HALL</p>
 
                 <h2 className="mt-4 text-4xl font-extrabold text-brand md:text-5xl">{destination}</h2>
                 <p className="mt-2 text-4xl font-extrabold text-gray-900 md:text-5xl">{tagline}</p>
                 <p className="mt-1 text-4xl font-extrabold text-brand md:text-5xl">렛츠GO</p>
 
                 <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-gray-500 md:text-base">
-                    둘만의 프라이빗한 휴식 — 탁 트인 오션뷰
+                    우리 두 사람만의 특별한 하루 — 완벽한 예식 공간
                     <br />
-                    최상급 서비스, 완벽한 프라이버시 보장.
+                    최상급 서비스, 하객까지 만족하는 완벽한 진행.
                 </p>
             </div>
 
@@ -67,7 +67,7 @@ export function DestinationSection({ id, destination, tagline = '오션뷰. 풀�
                                 destination={destination}
                                 className="inline-flex shrink-0 flex-col items-center justify-center whitespace-nowrap rounded-[10px] bg-brand px-4 py-2.5 text-center text-xs font-bold leading-tight text-white transition-colors hover:bg-brand-dark"
                             >
-                                <span>허니문</span>
+                                <span>웨딩홀</span>
                                 <span>스캔GO</span>
                             </ScanGoButton>
                         </div>
@@ -78,12 +78,12 @@ export function DestinationSection({ id, destination, tagline = '오션뷰. 풀�
             </div>
 
             <div className="mx-auto mt-8 max-w-5xl rounded-2xl bg-brand px-6 py-8 text-center text-white">
-                <p className="font-semibold">이외 다른 오션뷰 풀빌라 리조트 여행을 빠르게 찾아드립니다.</p>
+                <p className="font-semibold">이외 다른 인기 웨딩홀도 빠르게 찾아드립니다.</p>
                 <ScanGoButton
                     destination={destination}
                     className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand transition-colors hover:bg-gray-100"
                 >
-                    허니문 스캔GO 바로가기
+                    웨딩홀스캔GO 바로가기
                     <ArrowRightIcon className="h-4 w-4" />
                 </ScanGoButton>
             </div>

@@ -37,7 +37,7 @@ function ResortRow({
                     <input
                         type="text"
                         value={resort.name}
-                        placeholder="리조트명"
+                        placeholder="웨딩홀명"
                         onChange={(e) => onChange({ ...resort, name: e.target.value })}
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
                     />
@@ -118,7 +118,7 @@ function DestinationBlock({
                 className="flex w-full cursor-pointer items-center justify-between px-4 py-3 text-left"
             >
                 <span className="text-sm font-bold text-gray-900">
-                    {name || '(이름 없음)'} <span className="ml-1 font-normal text-gray-400">· 리조트 {resorts.length}곳</span>
+                    {name || '(이름 없음)'} <span className="ml-1 font-normal text-gray-400">· 웨딩홀 {resorts.length}곳</span>
                 </span>
                 <span className="text-xs text-gray-400">{open ? '접기 ▲' : '펼치기 ▼'}</span>
             </button>
@@ -128,7 +128,7 @@ function DestinationBlock({
                     <div className="flex items-center gap-2">
                         <label className="flex-1">
                             <span className="text-xs font-semibold text-gray-600">
-                                목적지 이름 <span className="font-normal text-gray-400">(챗봇의 목적지 선택지와 정확히 일치해야 후보로 노출돼요)</span>
+                                지역 이름 <span className="font-normal text-gray-400">(챗봇의 희망 지역 선택지와 정확히 일치해야 후보로 노출돼요)</span>
                             </span>
                             <input
                                 type="text"
@@ -147,7 +147,7 @@ function DestinationBlock({
                             onClick={onDelete}
                             className="mt-5 cursor-pointer self-start rounded-lg border border-red-200 px-3 py-2 text-xs font-semibold text-red-500 hover:bg-red-50"
                         >
-                            목적지 삭제
+                            지역 삭제
                         </button>
                     </div>
 
@@ -167,7 +167,7 @@ function DestinationBlock({
                         onClick={addResort}
                         className="cursor-pointer rounded-lg border border-dashed border-gray-300 px-3 py-2 text-xs font-semibold text-gray-500 hover:border-brand hover:text-brand"
                     >
-                        + 리조트 추가
+                        + 웨딩홀 추가
                     </button>
                 </div>
             )}
@@ -187,7 +187,7 @@ export function ResortsByDestinationEditor({
 
     function renameDestination(oldName: string, newName: string) {
         if (value[newName]) {
-            alert(`이미 "${newName}" 목적지가 있어요.`);
+            alert(`이미 "${newName}" 지역이 있어요.`);
             return;
         }
         const next: ResortsByDestination = {};
@@ -205,7 +205,7 @@ export function ResortsByDestinationEditor({
     }
 
     function deleteDestination(name: string) {
-        if (!confirm(`"${name}" 목적지의 리조트 데이터를 전체 삭제할까요?`)) return;
+        if (!confirm(`"${name}" 지역의 웨딩홀 데이터를 전체 삭제할까요?`)) return;
         const next = { ...value };
         delete next[name];
         onChange(next);
@@ -229,7 +229,7 @@ export function ResortsByDestinationEditor({
                     type="text"
                     value={newDestination}
                     onChange={(e) => setNewDestination(e.target.value)}
-                    placeholder="새 목적지 이름 (예: 세이셸)"
+                    placeholder="새 지역 이름 (예: 서구)"
                     className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
                 />
                 <button
@@ -237,7 +237,7 @@ export function ResortsByDestinationEditor({
                     onClick={addDestination}
                     className="cursor-pointer rounded-lg border border-dashed border-gray-300 px-3 py-2 text-xs font-semibold text-gray-500 hover:border-brand hover:text-brand"
                 >
-                    + 목적지 추가
+                    + 지역 추가
                 </button>
             </div>
         </div>

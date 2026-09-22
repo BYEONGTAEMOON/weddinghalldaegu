@@ -29,14 +29,14 @@ function PopularResortRow({
                         <input
                             type="text"
                             value={resort.name}
-                            placeholder="리조트명"
+                            placeholder="웨딩홀명"
                             onChange={(e) => onChange({ ...resort, name: e.target.value })}
                             className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
                         />
                         <input
                             type="text"
                             value={resort.country}
-                            placeholder="국가 (예: 발리)"
+                            placeholder="지역 (예: 수성구)"
                             onChange={(e) => onChange({ ...resort, country: e.target.value })}
                             className="w-28 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
                         />
@@ -117,7 +117,7 @@ export function PopularResortsEditor({
                 onClick={addResort}
                 className="cursor-pointer rounded-lg border border-dashed border-gray-300 px-3 py-2 text-xs font-semibold text-gray-500 hover:border-brand hover:text-brand"
             >
-                + 숙소 추가
+                + 웨딩홀 추가
             </button>
         </div>
     );

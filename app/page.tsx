@@ -6,7 +6,7 @@ import { HeroSection } from './components/hero-section';
 import { HowItWorksSection } from './components/how-it-works-section';
 import { ResortsSection } from './components/resorts-section';
 import { ReviewsSection } from './components/reviews-section';
-import { SafeHoneySection } from './components/safe-honey-section';
+import { SafeWeddingSection } from './components/safe-wedding-section';
 import { SiteFooter } from './components/site-footer';
 import { SiteHeader } from './components/site-header';
 import { StartNowSection } from './components/start-now-section';
@@ -21,6 +21,13 @@ export default async function Home() {
     const scenario = await getScenario();
     const resortsFor = (destination: string) => scenario.resortsByDestination[destination] ?? [];
 
+    // The set and order of homepage region sections follows the admin-managed
+    // "희망 지역" list directly, so adding/renaming/removing a region in the
+    // admin panel (and giving it at least one hall) is enough to change what
+    // shows here — no code change needed. Regions with no halls yet are
+    // skipped instead of rendering an empty section.
+    const shownDestinations = scenario.destinations.filter((destination) => resortsFor(destination).length > 0);
+
     return (
         <>
             <SiteHeader />
@@ -29,15 +36,16 @@ export default async function Home() {
                 <TrustSection />
                 <DealsSection />
                 <ResortsSection resorts={scenario.popularResorts} />
-                <DestinationSection id="bali" destination="발리" resorts={resortsFor('발리')} />
-                <DestinationSection destination="태국" resorts={resortsFor('태국')} />
-                <DestinationSection destination="유럽" tagline="호텔. 리조트." resorts={resortsFor('유럽')} />
-                <DestinationSection destination="몰디브" resorts={resortsFor('몰디브')} />
-                <DestinationSection destination="하와이" tagline="오션뷰. 호텔. 리조트." resorts={resortsFor('하와이')} />
-                <DestinationSection destination="칸쿤" tagline="오션뷰. 호텔. 리조트." resorts={resortsFor('칸쿤')} />
-                <DestinationSection destination="모리셔스" resorts={resortsFor('모리셔스')} />
+                {shownDestinations.map((destination, index) => (
+                    <DestinationSection
+                        key={destination}
+                        id={index === 0 ? 'regions' : undefined}
+                        destination={destination}
+                        resorts={resortsFor(destination)}
+                    />
+                ))}
                 <HowItWorksSection />
-                <SafeHoneySection />
+                <SafeWeddingSection />
                 <StartNowSection />
                 <ReviewsSection />
             </main>

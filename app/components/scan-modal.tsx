@@ -12,23 +12,23 @@ type Step = 'month' | 'destination' | 'budget' | 'resorts' | 'contact' | 'region
 const STEP_ORDER: Step[] = ['month', 'destination', 'budget', 'resorts', 'contact', 'region', 'name', 'done'];
 
 const STEP_LABEL: Record<Step, string> = {
-    month: '출발월 확인 중',
-    destination: '목적지 확인 중',
+    month: '예식월 확인 중',
+    destination: '희망 지역 확인 중',
     budget: '예산 확인 중',
-    resorts: '희망 리조트 선택 중',
+    resorts: '희망 웨딩홀 선택 중',
     contact: '자료 받을 번호 확인 중',
-    region: '거주 지역 확인 중',
+    region: '하객 규모 확인 중',
     name: '신청자 이름 확인 중',
     done: '접수 완료',
 };
 
 const PLACEHOLDER_BY_STEP: Record<Step, string> = {
     month: '예: 2027년 3월',
-    destination: '예: 발리',
-    budget: '예: 500만원',
+    destination: '예: 수성구',
+    budget: '예: 2,000만원',
     resorts: '위 후보에서 최대 3곳까지 선택하세요',
     contact: '010 1234 5678',
-    region: '예: 부산',
+    region: '예: 200명',
     name: '황호진',
     done: '상담이 접수되었습니다',
 };
@@ -66,9 +66,9 @@ function parseYearMonth(value: string): { year: number; month: number } | null {
     return { year, month };
 }
 
-// Honeymoon bookings are usually planned for a specific travel window (e.g. all
-// of next year), not "the next N months from today" — so admins set a fixed
-// start/end month instead of a rolling count.
+// Wedding bookings are usually planned for a specific window (e.g. all of next
+// year), not "the next N months from today" — so admins set a fixed start/end
+// month instead of a rolling count.
 function buildMonthRange(startValue: string, endValue: string): string[] {
     const start = parseYearMonth(startValue);
     const end = parseYearMonth(endValue);
@@ -92,7 +92,7 @@ function buildMonthRange(startValue: string, endValue: string): string[] {
 
 // Always shown as a 5th option below the top 4 resort candidates — a catch-all
 // for "none of these, help me find something else" rather than more catalog data.
-const OTHER_RESORT_OPTION = '그 외 호텔 및 리조트';
+const OTHER_RESORT_OPTION = '그 외 웨딩홀';
 
 let idCounter = 0;
 function nextId() {
@@ -171,7 +171,7 @@ function ScanModalInner({ onClose, prefillDestination, scenario }: Omit<ScanModa
                     {
                         id: nextId(),
                         type: 'bot',
-                        text: `${value} 예정으로 항공 잔여좌석과 견적 조회 도와드릴게요. ✨\n\n방금 보고 계셨던 ${prefillDestination} 여행으로 이어서 진행할게요. 📍`,
+                        text: `${value} 예정으로 예식 가능일과 견적 조회 도와드릴게요. ✨\n\n방금 보고 계셨던 ${prefillDestination} 웨딩홀로 이어서 진행할게요. 📍`,
                     },
                     { id: nextId(), type: 'user', text: prefillDestination },
                     { id: nextId(), type: 'bot', text: scenario.budgetQuestion },
@@ -221,7 +221,7 @@ function ScanModalInner({ onClose, prefillDestination, scenario }: Omit<ScanModa
                     {
                         id: nextId(),
                         type: 'bot',
-                        text: `${destination}은(는) 전담 컨설턴트가 직접 맞춤 리조트를 찾아드리는 지역이에요. ${scenario.afterResortMessage}`,
+                        text: `${destination}은(는) 전담 플래너가 직접 맞춤 웨딩홀을 찾아드리는 지역이에요. ${scenario.afterResortMessage}`,
                     },
                     { id: nextId(), type: 'checklist' },
                     { id: nextId(), type: 'bot', text: scenario.phoneQuestion },
@@ -357,7 +357,7 @@ function ScanModalInner({ onClose, prefillDestination, scenario }: Omit<ScanModa
                             <SearchIcon className="h-5 w-5 text-white" />
                         </span>
                         <div>
-                            <p className="text-sm font-bold text-white">허니문 스캔GO</p>
+                            <p className="text-sm font-bold text-white">웨딩홀스캔GO</p>
                             <p className="text-xs text-white/50">{STEP_LABEL[step]}</p>
                         </div>
                     </div>
@@ -494,7 +494,7 @@ function ScanModalInner({ onClose, prefillDestination, scenario }: Omit<ScanModa
                                             </span>
                                             <span className="min-w-0 flex-1">
                                                 <span className="block truncate text-sm font-bold text-white">{OTHER_RESORT_OPTION}</span>
-                                                <span className="block truncate text-xs text-white/50">신혼여행 전문가와 상의</span>
+                                                <span className="block truncate text-xs text-white/50">웨딩 플래너와 상의</span>
                                             </span>
                                             <span
                                                 className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${

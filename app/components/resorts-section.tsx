@@ -59,7 +59,7 @@ function ResortCard({
                     tabIndex={hidden ? -1 : undefined}
                     className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-gray-900 hover:text-brand"
                 >
-                    허니문 스캔GO
+                    웨딩홀스캔GO
                     <ArrowRightIcon className="h-4 w-4" />
                 </ScanGoButton>
             </div>
@@ -72,14 +72,14 @@ export function ResortsSection({ resorts }: { resorts: PopularResort[] }) {
         <section id="resorts" className="scroll-mt-20 border-t border-gray-100 py-20 md:py-28">
             <div className="mx-auto max-w-2xl px-6 text-center md:px-10">
                 <p className="text-sm font-medium tracking-[0.2em] text-gray-400">
-                    PREMIUM RESORTS & HOTELS
+                    PREMIUM WEDDING HALLS
                 </p>
                 <h2 className="mt-4 text-4xl font-extrabold text-gray-900 md:text-5xl">
-                    허니문 <span className="text-brand">인기 숙소</span>{' '}
+                    대구 <span className="text-brand">인기 웨딩홀</span>{' '}
                     둘러보기
                 </h2>
                 <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-gray-500 md:text-base">
-                    전 세계 엄선된 럭셔리 리조트·풀빌라를 한눈에 비교하고
+                    대구 전 지역 엄선된 웨딩홀을 한눈에 비교하고
                     <br />한 번에 맞춤 견적을 받아보세요.
                 </p>
             </div>

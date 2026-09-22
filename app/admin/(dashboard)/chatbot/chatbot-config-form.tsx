@@ -230,17 +230,17 @@ export function ChatbotConfigForm({ initialScenario }: { initialScenario: Chatbo
 
     return (
         <div className="space-y-6 pb-24">
-            <SectionCard title="1. 시작 인사 & 출발월" description="챗봇을 열면 가장 먼저 보이는 메시지예요.">
-                <Field label="시작 인사 + 출발월 질문" value={scenario.introMessage} onChange={(v) => set('introMessage', v)} rows={5} />
+            <SectionCard title="1. 시작 인사 & 예식월" description="챗봇을 열면 가장 먼저 보이는 메시지예요.">
+                <Field label="시작 인사 + 예식월 질문" value={scenario.introMessage} onChange={(v) => set('introMessage', v)} rows={5} />
                 <div className="flex flex-wrap gap-3">
-                    <MonthField label="출발월 선택 범위 시작" value={scenario.monthRangeStart} onChange={(v) => set('monthRangeStart', v)} />
-                    <MonthField label="출발월 선택 범위 끝" value={scenario.monthRangeEnd} onChange={(v) => set('monthRangeEnd', v)} />
+                    <MonthField label="예식월 선택 범위 시작" value={scenario.monthRangeStart} onChange={(v) => set('monthRangeStart', v)} />
+                    <MonthField label="예식월 선택 범위 끝" value={scenario.monthRangeEnd} onChange={(v) => set('monthRangeEnd', v)} />
                 </div>
             </SectionCard>
 
-            <SectionCard title="2. 목적지" description="{value} 자리에 방금 답한 출발월이 자동으로 들어가요.">
-                <Field label="목적지 질문" value={scenario.destinationQuestion} onChange={(v) => set('destinationQuestion', v)} rows={4} />
-                <StringListEditor label="목적지 선택지" items={scenario.destinations} onChange={(v) => set('destinations', v)} />
+            <SectionCard title="2. 희망 지역" description="{value} 자리에 방금 답한 예식월이 자동으로 들어가요.">
+                <Field label="희망 지역 질문" value={scenario.destinationQuestion} onChange={(v) => set('destinationQuestion', v)} rows={4} />
+                <StringListEditor label="희망 지역 선택지" items={scenario.destinations} onChange={(v) => set('destinations', v)} />
             </SectionCard>
 
             <SectionCard title="3. 예산">
@@ -248,17 +248,17 @@ export function ChatbotConfigForm({ initialScenario }: { initialScenario: Chatbo
                 <StringListEditor label="예산 선택지" items={scenario.budgets} onChange={(v) => set('budgets', v)} />
             </SectionCard>
 
-            <SectionCard title="4. 리조트 추천 · 연락처" description="{destination} 자리에 선택한 목적지가 자동으로 들어가요.">
-                <Field label="리조트 후보 안내" value={scenario.resortPickerIntro} onChange={(v) => set('resortPickerIntro', v)} rows={4} />
-                <Field label="리조트 선택 후 안내" value={scenario.afterResortMessage} onChange={(v) => set('afterResortMessage', v)} rows={2} />
+            <SectionCard title="4. 웨딩홀 추천 · 연락처" description="{destination} 자리에 선택한 지역이 자동으로 들어가요.">
+                <Field label="웨딩홀 후보 안내" value={scenario.resortPickerIntro} onChange={(v) => set('resortPickerIntro', v)} rows={4} />
+                <Field label="웨딩홀 선택 후 안내" value={scenario.afterResortMessage} onChange={(v) => set('afterResortMessage', v)} rows={2} />
                 <TextItemListEditor label="무료로 받는 자료 목록" items={scenario.freeItems} onChange={(v) => set('freeItems', v)} />
                 <Field label="휴대폰 번호 질문" value={scenario.phoneQuestion} onChange={(v) => set('phoneQuestion', v)} rows={2} />
                 <Field label="개인정보 안내" value={scenario.privacyNotice} onChange={(v) => set('privacyNotice', v)} rows={2} />
             </SectionCard>
 
-            <SectionCard title="5. 거주 지역 · 이름">
-                <Field label="거주 지역 질문" value={scenario.regionQuestion} onChange={(v) => set('regionQuestion', v)} rows={2} />
-                <StringListEditor label="거주 지역 선택지" items={scenario.regions} onChange={(v) => set('regions', v)} />
+            <SectionCard title="5. 하객 규모 · 이름">
+                <Field label="하객 규모 질문" value={scenario.regionQuestion} onChange={(v) => set('regionQuestion', v)} rows={2} />
+                <StringListEditor label="하객 규모 선택지" items={scenario.regions} onChange={(v) => set('regions', v)} />
                 <Field label="이름 질문" value={scenario.nameQuestion} onChange={(v) => set('nameQuestion', v)} rows={2} />
             </SectionCard>
 

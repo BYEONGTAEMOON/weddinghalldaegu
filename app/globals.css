@@ -7,10 +7,10 @@ html {
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  /* Brand blue — use bg-brand / text-brand / border-brand (brand-dark, brand-light) instead of the Tailwind blue-* palette. */
-  --brand: #1559aa;
-  --brand-dark: #124c90;
-  --brand-light: #ecf2f8;
+  /* Brand pink — use bg-brand / text-brand / border-brand (brand-dark, brand-light) instead of the Tailwind pink-* palette. */
+  --brand: #ed3b83;
+  --brand-dark: #c9326f;
+  --brand-light: #fdecf3;
 }
 
 @theme inline {
