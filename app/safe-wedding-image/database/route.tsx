@@ -1,11 +1,53 @@
 import { weddingCardImageResponse } from '@/lib/wedding-card-image';
 
+// A 3-tier wedding cake with a heart topper — for the "웨딩홀 데이터 확보" card.
 export async function GET() {
     return weddingCardImageResponse(
-        <svg width="240" height="240" viewBox="0 0 24 24" fill="none">
-            <rect x="5.5" y="4.5" width="13" height="16" rx="2" stroke="#fff" strokeWidth="1.4" />
-            <path d="M9 4.5V4a2 2 0 012-2h2a2 2 0 012 2v.5" stroke="#fff" strokeWidth="1.4" />
-            <path d="M9 13l2 2 4-4.2" stroke="#fff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>,
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="#fff" style={{ marginBottom: 10 }}>
+                <path d="M12 21s-7-4.6-9.5-9C1 8 2.5 4 6.5 4c2 0 3.5 1.2 4.5 2.8C12 5.2 13.5 4 15.5 4 19.5 4 21 8 19.5 12 17 16.4 12 21 12 21z" />
+            </svg>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 100,
+                    height: 42,
+                    background: '#fff',
+                    borderRadius: 8,
+                    marginBottom: 10,
+                }}
+            >
+                <div style={{ width: 70, height: 7, background: '#ed3b83', borderRadius: 4 }} />
+            </div>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 165,
+                    height: 58,
+                    background: '#fff',
+                    borderRadius: 10,
+                    marginBottom: 10,
+                }}
+            >
+                <div style={{ width: 115, height: 8, background: '#ed3b83', borderRadius: 4 }} />
+            </div>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 230,
+                    height: 74,
+                    background: '#fff',
+                    borderRadius: 12,
+                }}
+            >
+                <div style={{ width: 160, height: 9, background: '#ed3b83', borderRadius: 5 }} />
+            </div>
+        </div>,
     );
 }
