@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
+
 import { getPrisma } from '@/lib/prisma';
 
 import { AccountForm } from './account-form';
 
+export const metadata: Metadata = { title: '계정 설정' };
 export const dynamic = 'force-dynamic';
 
 async function loadUsername(): Promise<string> {

@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 import type { Lead } from '@/generated/prisma/client';
 import { formatDateTime } from '@/lib/format';
 import { getPrisma } from '@/lib/prisma';
 
+export const metadata: Metadata = { title: '대시보드' };
 export const dynamic = 'force-dynamic';
 
 const STATUS_LIST = ['신규', '연락중', '예약완료', '취소'];

@@ -629,12 +629,14 @@ function ScanModalInner({ onClose, prefillDestination, scenario }: Omit<ScanModa
                                 if (e.key === 'Enter') handleFreeformSend();
                             }}
                             placeholder={placeholder}
+                            aria-label={STEP_LABEL[step]}
                             className="flex-1 rounded-full bg-white/10 px-4 py-3 text-sm text-white placeholder-white/40 outline-none disabled:cursor-not-allowed disabled:opacity-40"
                         />
                         <button
                             type="button"
                             onClick={handleFreeformSend}
                             disabled={inputDisabled}
+                            aria-label="답변 전송"
                             className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-brand to-brand-dark text-white disabled:cursor-not-allowed disabled:opacity-40"
                         >
                             <SendIcon className="h-4 w-4" />

@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
+
 import { getScenarioWithStatus } from '@/lib/scenario-store';
 
 import { ChatbotConfigForm } from './chatbot-config-form';
 
+export const metadata: Metadata = { title: '챗봇 시나리오' };
 export const dynamic = 'force-dynamic';
 
 export default async function AdminChatbotPage() {

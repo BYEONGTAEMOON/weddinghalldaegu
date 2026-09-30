@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
+
 import { getScenarioWithStatus } from '@/lib/scenario-store';
 
 import { ContentConfigForm } from './content-config-form';
 
+export const metadata: Metadata = { title: '메인화면 컨텐츠' };
 export const dynamic = 'force-dynamic';
 
 export default async function AdminContentPage() {

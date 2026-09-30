@@ -1,8 +1,11 @@
+import type { Metadata } from 'next';
+
 import type { Lead } from '@/generated/prisma/client';
 import { getPrisma } from '@/lib/prisma';
 
 import { LeadsTable } from './leads-table';
 
+export const metadata: Metadata = { title: '신청 데이터' };
 export const dynamic = 'force-dynamic';
 
 async function loadLeads(): Promise<{ leads: Lead[]; blockedIps: string[]; error: string | null }> {
