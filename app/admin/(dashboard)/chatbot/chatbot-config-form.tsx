@@ -229,7 +229,7 @@ export function ChatbotConfigForm({ initialScenario }: { initialScenario: Chatbo
     }
 
     return (
-        <div className="space-y-6 pb-24">
+        <div className="space-y-6 pb-28">
             <SectionCard title="1. 시작 인사 & 예식월" description="챗봇을 열면 가장 먼저 보이는 메시지예요.">
                 <Field label="시작 인사 + 예식월 질문" value={scenario.introMessage} onChange={(v) => set('introMessage', v)} rows={5} />
                 <div className="flex flex-wrap gap-3">
@@ -269,15 +269,17 @@ export function ChatbotConfigForm({ initialScenario }: { initialScenario: Chatbo
             </SectionCard>
 
             <div className="fixed inset-x-0 bottom-0 border-t border-gray-100 bg-white/95 px-8 py-4 backdrop-blur md:left-60">
-                <div className="mx-auto flex max-w-5xl items-center justify-between">
-                    <div className="flex items-center gap-3">
+                <div className="mx-auto flex max-w-5xl items-center justify-between gap-3">
+                    <div className="min-w-0 flex-1">
                         {message && (
-                            <p className={`text-sm font-medium ${message.type === 'success' ? 'text-emerald-600' : 'text-red-500'}`}>
+                            <p
+                                className={`truncate text-sm font-medium ${message.type === 'success' ? 'text-emerald-600' : 'text-red-500'}`}
+                            >
                                 {message.text}
                             </p>
                         )}
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex shrink-0 items-center gap-2">
                         <button
                             type="button"
                             onClick={handleReset}

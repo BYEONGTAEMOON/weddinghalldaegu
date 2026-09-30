@@ -1,7 +1,8 @@
-import { ArrowRightIcon, ClockIcon, GiftIcon, PlaneIcon } from './icons';
+import { ArrowRightIcon, CakeIcon, CalendarHeartIcon, ClockIcon, DressIcon, GiftIcon } from './icons';
 
 const deals = [
     {
+        icon: CalendarHeartIcon,
         title: '주말 예식 골든타임',
         description: [
             '가장 먼저 마감되는 인기 예식 시간대예요.',
@@ -10,6 +11,7 @@ const deals = [
         benefit: '예약 시 웨딩홀 대관료 최대 100만원 지원',
     },
     {
+        icon: CakeIcon,
         title: '봄·가을 웨딩 성수기 특가',
         description: [
             '성수기 인기 웨딩홀은 빠르게 마감돼요.',
@@ -18,6 +20,7 @@ const deals = [
         benefit: '식사 업그레이드 + 웨딩 스냅 촬영 제공',
     },
     {
+        icon: DressIcon,
         title: '얼리버드·비수기 알뜰 특가',
         description: [
             '가장 먼저 마감되는 인기 예식 시간대예요.',
@@ -59,7 +62,7 @@ export function DealsSection() {
                         <div className="flex h-full flex-col p-8">
                             <div className="flex items-center justify-between">
                                 <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand text-white">
-                                    <PlaneIcon className="h-6 w-6" />
+                                    <deal.icon className="h-6 w-6" />
                                 </span>
                                 <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">
                                     마감 임박

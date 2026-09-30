@@ -3,21 +3,21 @@ import Image from 'next/image';
 const cards = [
     {
         slug: 'coverage',
-        stat: '대구·구미·경산 7개 지역',
+        stat: '대구·구미·경산',
         label: '지역 커버리지',
-        image: 'https://picsum.photos/seed/wedding-safe-01/600/800',
+        image: '/safe-wedding-image/coverage',
     },
     {
         slug: 'database',
         stat: '누적 500+',
         label: '웨딩홀 데이터 확보',
-        image: 'https://picsum.photos/seed/wedding-safe-02/600/800',
+        image: '/safe-wedding-image/database',
     },
     {
         slug: 'response',
         stat: '평균 1일 이내',
         label: '맞춤 견적 회신',
-        image: 'https://picsum.photos/seed/wedding-safe-03/600/800',
+        image: '/safe-wedding-image/response',
     },
 ];
 

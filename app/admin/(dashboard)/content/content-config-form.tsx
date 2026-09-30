@@ -53,7 +53,7 @@ export function ContentConfigForm({ initialScenario }: { initialScenario: Chatbo
     }
 
     return (
-        <div className="space-y-6 pb-24">
+        <div className="space-y-6 pb-28">
             <SectionCard
                 title="1. 지역별 웨딩홀"
                 description="여기서 지역을 추가·삭제하면 홈페이지 지역 섹션과 챗봇의 웨딩홀 후보 화면에 그대로 반영돼요. (새 지역은 &ldquo;챗봇 시나리오 &gt; 희망 지역 선택지&rdquo;에도 똑같은 이름으로 추가해야 노출돼요)"
@@ -69,15 +69,17 @@ export function ContentConfigForm({ initialScenario }: { initialScenario: Chatbo
             </SectionCard>
 
             <div className="fixed inset-x-0 bottom-0 border-t border-gray-100 bg-white/95 px-8 py-4 backdrop-blur md:left-60">
-                <div className="mx-auto flex max-w-5xl items-center justify-between">
-                    <div className="flex items-center gap-3">
+                <div className="mx-auto flex max-w-5xl items-center justify-between gap-3">
+                    <div className="min-w-0 flex-1">
                         {message && (
-                            <p className={`text-sm font-medium ${message.type === 'success' ? 'text-emerald-600' : 'text-red-500'}`}>
+                            <p
+                                className={`truncate text-sm font-medium ${message.type === 'success' ? 'text-emerald-600' : 'text-red-500'}`}
+                            >
                                 {message.text}
                             </p>
                         )}
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex shrink-0 items-center gap-2">
                         <button
                             type="button"
                             onClick={handleReset}

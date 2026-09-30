@@ -212,3 +212,74 @@ export function ArrowRightIcon({ className }: IconProps) {
         </svg>
     );
 }
+
+export function RingIcon({ className }: IconProps) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+            <circle cx="9" cy="15" r="5" stroke="currentColor" strokeWidth="1.6" />
+            <circle cx="15" cy="15" r="5" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M11 6l1-3 1 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
+}
+
+export function BouquetIcon({ className }: IconProps) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+            <path d="M12 21v-8.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            <circle cx="9" cy="8.5" r="3" stroke="currentColor" strokeWidth="1.6" />
+            <circle cx="15" cy="8.5" r="3" stroke="currentColor" strokeWidth="1.6" />
+            <circle cx="12" cy="5.5" r="3" stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+    );
+}
+
+export function BellIcon({ className }: IconProps) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+            <path
+                d="M12 3a5 5 0 00-5 5v2.8c0 1.4-.6 2.7-1.6 3.7L5 15h14l-.4-.5c-1-1-1.6-2.3-1.6-3.7V8a5 5 0 00-5-5z"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+            />
+            <path d="M10 18.5a2 2 0 004 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+    );
+}
+
+export function CalendarHeartIcon({ className }: IconProps) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+            <rect x="4" y="5.5" width="16" height="14.5" rx="2" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M4 10h16" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M8 3.5v4M16 3.5v4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            <path
+                d="M12 17.2l-2.1-2a1.5 1.5 0 112.1-2.2 1.5 1.5 0 112.1 2.2l-2.1 2z"
+                fill="currentColor"
+            />
+        </svg>
+    );
+}
+
+export function CakeIcon({ className }: IconProps) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+            <path d="M12 3v2.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            <path d="M10.8 5.5c0 1 2.4 1 2.4 0 0-.7-1.2-1-1.2-1.8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+            <rect x="9.5" y="6.5" width="5" height="4" rx="1" stroke="currentColor" strokeWidth="1.6" />
+            <rect x="7" y="10.5" width="10" height="4.5" rx="1" stroke="currentColor" strokeWidth="1.6" />
+            <rect x="4.5" y="15" width="15" height="5.5" rx="1" stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+    );
+}
+
+export function DressIcon({ className }: IconProps) {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+            <path d="M10 3h4l1 3.5-2.5 1.5-2.5-1.5L10 3z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+            <path d="M9.5 8l-4 12h13l-4-12" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+            <path d="M9.5 8h5" stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+    );
+}

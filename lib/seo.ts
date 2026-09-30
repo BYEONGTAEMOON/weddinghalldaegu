@@ -2,7 +2,7 @@
 // connected — set NEXT_PUBLIC_SITE_URL (locally and on Vercel) once one is,
 // so canonical URLs, the sitemap, robots.txt, and OG/JSON-LD links all follow
 // automatically without another code change.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://weddinghalldaegu.vercel.app';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.daeguweddinghall.com';
 
 // The on-page/visible brand — kept separate from the SEO-focused <title> copy
 // so structured data always matches what a visitor (and a crawler fact-checking

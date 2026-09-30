@@ -1,4 +1,4 @@
-import { MapPinIcon, PlaneIcon, SuitcaseIcon, TicketIcon } from './icons';
+import { BellIcon, BouquetIcon, PlaneIcon, RingIcon, SuitcaseIcon, TicketIcon } from './icons';
 import { ScanGoButton } from './scan-go-button';
 
 const badges = [
@@ -9,7 +9,7 @@ const badges = [
 
 const features = [
     {
-        icon: SuitcaseIcon,
+        icon: RingIcon,
         title: '웨딩홀 지원혜택',
         description: [
             '홀 대관료 얼리버드 할인부터',
@@ -17,7 +17,7 @@ const features = [
         ],
     },
     {
-        icon: MapPinIcon,
+        icon: BouquetIcon,
         title: '웨딩홀 맞춤 상담 서비스',
         description: [
             '여기저기 발품 팔지 않아도',
@@ -25,7 +25,7 @@ const features = [
         ],
     },
     {
-        icon: PlaneIcon,
+        icon: BellIcon,
         title: '실시간 특가·최적 홀 비교',
         description: ['우리가 원하는 예식일에', '최대 혜택 웨딩홀 정보 제공'],
     },

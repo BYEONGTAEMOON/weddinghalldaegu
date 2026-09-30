@@ -39,8 +39,8 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         {
             slug: 'ravia-wedding-convention',
             name: '라비아웨딩컨벤션',
-            description: '화려한 샹들리에 채플과 고급 뷔페 다이닝을 갖춘 수성구 대표 프리미엄 웨딩홀',
-            tags: ['샹들리에채플', '고급뷔페', '발렛파킹'],
+            description: '화려한 샹들리에 홀과 고급 뷔페 다이닝을 갖춘 수성구 대표 프리미엄 웨딩홀',
+            tags: ['샹들리에홀', '고급뷔페', '발렛파킹'],
         },
         {
             slug: 'grand-hills-wedding',
@@ -51,16 +51,16 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         {
             slug: 'garden-palace-house',
             name: '더가든팰리스',
-            description: '사계절 실내 정원 채플과 셰프 협업 코스 요리를 선보이는 프라이빗 하우스웨딩홀',
-            tags: ['실내정원채플', '코스요리', '프라이빗홀'],
+            description: '사계절 실내 정원 홀과 셰프 협업 코스 요리를 선보이는 프라이빗 하우스웨딩홀',
+            tags: ['실내정원홀', '코스요리', '프라이빗홀'],
         },
     ]),
     동구: withImages([
         {
             slug: 'ayang-river-view-wedding',
             name: '아양리버뷰웨딩',
-            description: '금호강 리버뷰와 자연광 가득한 통유리 채플을 갖춘 감성 웨딩홀',
-            tags: ['리버뷰', '통유리채플', '자연광'],
+            description: '금호강 리버뷰와 자연광 가득한 통유리 홀을 갖춘 감성 웨딩홀',
+            tags: ['리버뷰', '통유리홀', '자연광'],
         },
         {
             slug: 'sincheon-central-wedding',
@@ -85,8 +85,8 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         {
             slug: 'chilseong-noblesse-wedding',
             name: '칠성노블레스웨딩',
-            description: '은은한 조명의 클래식 채플과 프리미엄 한식 다이닝을 갖춘 웨딩홀',
-            tags: ['클래식채플', '한식다이닝', '프리미엄'],
+            description: '은은한 조명의 클래식 홀과 프리미엄 한식 다이닝을 갖춘 웨딩홀',
+            tags: ['클래식홀', '한식다이닝', '프리미엄'],
         },
         {
             slug: 'universal-wedding-hall',
@@ -110,9 +110,9 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         },
         {
             slug: 'west-hill-chapel',
-            name: '웨스트힐채플',
-            description: '따뜻한 우드톤 인테리어가 돋보이는 아늑한 소규모 채플 웨딩 전문홀',
-            tags: ['우드톤채플', '아늑한분위기', '소규모예식'],
+            name: '웨스트힐웨딩',
+            description: '따뜻한 우드톤 인테리어가 돋보이는 아늑한 소규모 웨딩 전문홀',
+            tags: ['우드톤홀', '아늑한분위기', '소규모예식'],
         },
     ]),
     서구: withImages([
@@ -125,8 +125,8 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         {
             slug: 'naedang-classic-wedding',
             name: '내당클래식웨딩',
-            description: '아늑한 소규모 채플과 정갈한 한정식 다이닝을 갖춘 웨딩홀',
-            tags: ['소규모채플', '한정식', '아늑함'],
+            description: '아늑한 소규모 홀과 정갈한 한정식 다이닝을 갖춘 웨딩홀',
+            tags: ['소규모홀', '한정식', '아늑함'],
         },
     ]),
     구미: withImages([
@@ -139,14 +139,14 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         {
             slug: 'geumosan-garden-wedding',
             name: '금오산가든웨딩',
-            description: '금오산 자락의 탁 트인 야외 정원과 자연 채광 채플을 갖춘 웨딩홀',
+            description: '금오산 자락의 탁 트인 야외 정원과 자연 채광 홀을 갖춘 웨딩홀',
             tags: ['금오산뷰', '야외정원', '자연채광'],
         },
         {
             slug: 'gumi-central-chapel',
-            name: '구미센트럴채플',
-            description: '구미역 도보권에 위치한 아늑한 소규모 채플 웨딩 전문홀',
-            tags: ['역세권', '소규모채플', '아늑함'],
+            name: '구미센트럴웨딩',
+            description: '구미역 도보권에 위치한 아늑한 소규모 웨딩 전문홀',
+            tags: ['역세권', '소규모홀', '아늑함'],
         },
     ]),
     경산: withImages([
@@ -165,8 +165,8 @@ const DEFAULT_RESORTS_BY_DESTINATION: Record<string, DestinationResort[]> = {
         {
             slug: 'gyeongsan-palace-wedding',
             name: '경산팰리스웨딩',
-            description: '경산 중심가에 위치한 고급 채플과 프리미엄 다이닝을 갖춘 웨딩홀',
-            tags: ['프리미엄다이닝', '고급채플', '중심가'],
+            description: '경산 중심가에 위치한 고급 홀과 프리미엄 다이닝을 갖춘 웨딩홀',
+            tags: ['프리미엄다이닝', '고급홀', '중심가'],
         },
     ]),
 };
@@ -176,16 +176,16 @@ const DEFAULT_POPULAR_RESORTS: PopularResort[] = [
         slug: 'ravia-wedding-convention-popular',
         country: '수성구',
         name: '라비아웨딩컨벤션',
-        description: '화려한 샹들리에 채플과 고급 뷔페 다이닝을 갖춘 수성구 대표 프리미엄 웨딩홀',
-        tags: ['샹들리에채플', '고급뷔페', '프리미엄'],
+        description: '화려한 샹들리에 홀과 고급 뷔페 다이닝을 갖춘 수성구 대표 프리미엄 웨딩홀',
+        tags: ['샹들리에홀', '고급뷔페', '프리미엄'],
         image: seedImage('ravia-wedding-convention-popular'),
     },
     {
         slug: 'ayang-river-view-wedding-popular',
         country: '동구',
         name: '아양리버뷰웨딩',
-        description: '금호강 리버뷰와 자연광 가득한 통유리 채플을 갖춘 감성 웨딩홀',
-        tags: ['리버뷰', '통유리채플', '자연광'],
+        description: '금호강 리버뷰와 자연광 가득한 통유리 홀을 갖춘 감성 웨딩홀',
+        tags: ['리버뷰', '통유리홀', '자연광'],
         image: seedImage('ayang-river-view-wedding-popular'),
     },
     {
@@ -216,7 +216,7 @@ const DEFAULT_POPULAR_RESORTS: PopularResort[] = [
         slug: 'geumosan-garden-wedding-popular',
         country: '구미',
         name: '금오산가든웨딩',
-        description: '금오산 자락의 탁 트인 야외 정원과 자연 채광 채플을 갖춘 웨딩홀',
+        description: '금오산 자락의 탁 트인 야외 정원과 자연 채광 홀을 갖춘 웨딩홀',
         tags: ['금오산뷰', '야외정원', '자연채광'],
         image: seedImage('geumosan-garden-wedding-popular'),
     },
@@ -224,8 +224,8 @@ const DEFAULT_POPULAR_RESORTS: PopularResort[] = [
         slug: 'gyeongsan-palace-wedding-popular',
         country: '경산',
         name: '경산팰리스웨딩',
-        description: '경산 중심가에 위치한 고급 채플과 프리미엄 다이닝을 갖춘 웨딩홀',
-        tags: ['프리미엄다이닝', '고급채플', '중심가'],
+        description: '경산 중심가에 위치한 고급 홀과 프리미엄 다이닝을 갖춘 웨딩홀',
+        tags: ['프리미엄다이닝', '고급홀', '중심가'],
         image: seedImage('gyeongsan-palace-wedding-popular'),
     },
 ];
