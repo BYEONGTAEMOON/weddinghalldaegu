@@ -1,7 +1,41 @@
 import { NextResponse } from 'next/server';
 
 import { getClientIp } from '@/lib/client-ip';
+import { getNotificationSettings } from '@/lib/notification-store';
 import { getPrisma } from '@/lib/prisma';
+import { sendSms } from '@/lib/sms';
+
+// Best-effort notification — a Solapi outage or a missing admin phone number
+// should never fail the lead submission itself, so every error here is only
+// logged, never thrown.
+async function notifyNewLead(lead: {
+    name: string;
+    phone: string;
+    month?: string | null;
+    destination?: string | null;
+    budget?: string | null;
+}) {
+    try {
+        const settings = await getNotificationSettings();
+        if (!settings.smsEnabled || !settings.recipientPhone || !settings.senderPhone) return;
+
+        const lines = [
+            '[웨딩홀스캔GO] 새 상담 신청이 접수됐어요.',
+            `이름: ${lead.name}`,
+            `연락처: ${lead.phone}`,
+        ];
+        if (lead.month) lines.push(`예식월: ${lead.month}`);
+        if (lead.destination) lines.push(`희망지역: ${lead.destination}`);
+        if (lead.budget) lines.push(`예산: ${lead.budget}`);
+
+        const result = await sendSms({ to: settings.recipientPhone, from: settings.senderPhone, text: lines.join('\n') });
+        if (!result.ok) {
+            console.error('Failed to send lead notification SMS', result.error);
+        }
+    } catch (error) {
+        console.error('Failed to send lead notification SMS', error);
+    }
+}
 
 export async function POST(request: Request) {
     let body: {
@@ -53,6 +87,9 @@ export async function POST(request: Request) {
                 ip,
             },
         });
+
+        await notifyNewLead({ name, phone, month, destination, budget });
+
         return NextResponse.json({ ok: true });
     } catch (error) {
         console.error('Failed to save lead', error);

@@ -50,3 +50,11 @@ model AdminAccount {
 
   @@map("admin_account")
 }
+
+model NotificationSettings {
+  id        Int      @id @default(1)
+  data      Json
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("notification_settings")
+}
