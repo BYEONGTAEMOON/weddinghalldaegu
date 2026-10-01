@@ -4,13 +4,62 @@ import { useState } from 'react';
 
 import type { NotificationSettings } from '@/lib/notification-settings';
 
+function RecipientPhoneListEditor({
+    phones,
+    onChange,
+}: {
+    phones: string[];
+    onChange: (phones: string[]) => void;
+}) {
+    return (
+        <div>
+            <span className="text-xs font-semibold text-gray-600">알림 받을 번호 (관리자 휴대폰, 여러 개 등록 가능)</span>
+            <div className="mt-1.5 space-y-2">
+                {phones.map((phone, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                        <input
+                            type="text"
+                            placeholder="01012345678"
+                            value={phone}
+                            onChange={(e) => {
+                                const next = [...phones];
+                                next[index] = e.target.value;
+                                onChange(next);
+                            }}
+                            className="flex-1 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+                        />
+                        <button
+                            type="button"
+                            onClick={() => onChange(phones.filter((_, i) => i !== index))}
+                            className="cursor-pointer rounded-lg border border-red-200 px-2.5 py-2 text-xs font-semibold text-red-500 hover:bg-red-50"
+                        >
+                            삭제
+                        </button>
+                    </div>
+                ))}
+                <button
+                    type="button"
+                    onClick={() => onChange([...phones, ''])}
+                    className="cursor-pointer rounded-lg border border-dashed border-gray-300 px-3 py-2 text-xs font-semibold text-gray-500 hover:border-brand hover:text-brand"
+                >
+                    + 번호 추가
+                </button>
+            </div>
+        </div>
+    );
+}
+
 export function NotificationSettingsForm({ initialSettings }: { initialSettings: NotificationSettings }) {
     const [smsEnabled, setSmsEnabled] = useState(initialSettings.smsEnabled);
-    const [recipientPhone, setRecipientPhone] = useState(initialSettings.recipientPhone);
+    const [recipientPhones, setRecipientPhones] = useState<string[]>(
+        initialSettings.recipientPhones.length > 0 ? initialSettings.recipientPhones : [''],
+    );
     const [senderPhone, setSenderPhone] = useState(initialSettings.senderPhone);
     const [saving, setSaving] = useState(false);
     const [testing, setTesting] = useState(false);
     const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+    const cleanedPhones = recipientPhones.map((p) => p.trim()).filter(Boolean);
 
     async function handleSave(e: React.FormEvent) {
         e.preventDefault();
@@ -20,7 +69,7 @@ export function NotificationSettingsForm({ initialSettings }: { initialSettings:
             const res = await fetch('/api/admin/notification-settings', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ smsEnabled, recipientPhone, senderPhone }),
+                body: JSON.stringify({ smsEnabled, recipientPhones: cleanedPhones, senderPhone }),
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) {
@@ -42,14 +91,19 @@ export function NotificationSettingsForm({ initialSettings }: { initialSettings:
             const res = await fetch('/api/admin/notification-settings/test', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ recipientPhone, senderPhone }),
+                body: JSON.stringify({ recipientPhones: cleanedPhones, senderPhone }),
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) {
                 setMessage({ type: 'error', text: data.error ?? '테스트 문자 발송에 실패했습니다.' });
                 return;
             }
-            setMessage({ type: 'success', text: '테스트 문자를 보냈어요. 수신 여부를 확인해주세요.' });
+            const failed: string[] = data.failed ?? [];
+            if (failed.length > 0) {
+                setMessage({ type: 'error', text: `일부 번호 발송 실패: ${failed.join(', ')}` });
+                return;
+            }
+            setMessage({ type: 'success', text: '테스트 문자를 모두 보냈어요. 수신 여부를 확인해주세요.' });
         } catch {
             setMessage({ type: 'error', text: '네트워크 오류가 발생했습니다.' });
         } finally {
@@ -70,16 +124,7 @@ export function NotificationSettingsForm({ initialSettings }: { initialSettings:
             </label>
 
             <div className="border-t border-gray-100 pt-4">
-                <label className="block">
-                    <span className="text-xs font-semibold text-gray-600">알림 받을 번호 (관리자 휴대폰)</span>
-                    <input
-                        type="text"
-                        placeholder="01012345678"
-                        value={recipientPhone}
-                        onChange={(e) => setRecipientPhone(e.target.value)}
-                        className="mt-1.5 block w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
-                    />
-                </label>
+                <RecipientPhoneListEditor phones={recipientPhones} onChange={setRecipientPhones} />
 
                 <label className="mt-4 block">
                     <span className="text-xs font-semibold text-gray-600">
@@ -112,7 +157,7 @@ export function NotificationSettingsForm({ initialSettings }: { initialSettings:
                 <button
                     type="button"
                     onClick={handleTestSend}
-                    disabled={testing || !recipientPhone || !senderPhone}
+                    disabled={testing || cleanedPhones.length === 0 || !senderPhone}
                     className="flex-1 cursor-pointer rounded-lg border border-gray-200 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                     {testing ? '발송 중...' : '테스트 문자 보내기'}

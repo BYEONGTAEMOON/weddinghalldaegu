@@ -17,7 +17,7 @@ async function notifyNewLead(lead: {
 }) {
     try {
         const settings = await getNotificationSettings();
-        if (!settings.smsEnabled || !settings.recipientPhone || !settings.senderPhone) return;
+        if (!settings.smsEnabled || settings.recipientPhones.length === 0 || !settings.senderPhone) return;
 
         const lines = [
             '[웨딩홀스캔GO] 새 상담 신청이 접수됐어요.',
@@ -27,11 +27,16 @@ async function notifyNewLead(lead: {
         if (lead.month) lines.push(`예식월: ${lead.month}`);
         if (lead.destination) lines.push(`희망지역: ${lead.destination}`);
         if (lead.budget) lines.push(`예산: ${lead.budget}`);
+        const text = lines.join('\n');
 
-        const result = await sendSms({ to: settings.recipientPhone, from: settings.senderPhone, text: lines.join('\n') });
-        if (!result.ok) {
-            console.error('Failed to send lead notification SMS', result.error);
-        }
+        await Promise.all(
+            settings.recipientPhones.map(async (to) => {
+                const result = await sendSms({ to, from: settings.senderPhone, text });
+                if (!result.ok) {
+                    console.error('Failed to send lead notification SMS', to, result.error);
+                }
+            }),
+        );
     } catch (error) {
         console.error('Failed to send lead notification SMS', error);
     }

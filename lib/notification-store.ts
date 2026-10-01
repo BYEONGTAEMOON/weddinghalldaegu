@@ -11,7 +11,7 @@ export async function getNotificationSettingsWithStatus(): Promise<{
     try {
         const prisma = getPrisma();
         const row = await prisma.notificationSettings.findUnique({ where: { id: 1 } });
-        return { settings: row ? mergeNotificationSettings(row.data as never) : DEFAULT_NOTIFICATION_SETTINGS, error: null };
+        return { settings: row ? mergeNotificationSettings(row.data) : DEFAULT_NOTIFICATION_SETTINGS, error: null };
     } catch (error) {
         return {
             settings: DEFAULT_NOTIFICATION_SETTINGS,
