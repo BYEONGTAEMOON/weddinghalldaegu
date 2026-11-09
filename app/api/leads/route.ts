@@ -14,6 +14,7 @@ async function notifyNewLead(lead: {
     month?: string | null;
     destination?: string | null;
     budget?: string | null;
+    selectedResorts?: string[];
 }) {
     try {
         const settings = await getNotificationSettings();
@@ -27,6 +28,9 @@ async function notifyNewLead(lead: {
         if (lead.month) lines.push(`예식월: ${lead.month}`);
         if (lead.destination) lines.push(`희망지역: ${lead.destination}`);
         if (lead.budget) lines.push(`예산: ${lead.budget}`);
+        if (lead.selectedResorts && lead.selectedResorts.length > 0) {
+            lines.push(`선택 웨딩홀: ${lead.selectedResorts.join(', ')}`);
+        }
         const text = lines.join('\n');
 
         await Promise.all(
@@ -93,7 +97,7 @@ export async function POST(request: Request) {
             },
         });
 
-        await notifyNewLead({ name, phone, month, destination, budget });
+        await notifyNewLead({ name, phone, month, destination, budget, selectedResorts });
 
         return NextResponse.json({ ok: true });
     } catch (error) {

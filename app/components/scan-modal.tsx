@@ -29,7 +29,7 @@ const PLACEHOLDER_BY_STEP: Record<Step, string> = {
     resorts: '위 후보에서 최대 3곳까지 선택하세요',
     contact: '010 1234 5678',
     region: '예: 200명',
-    name: '황호진',
+    name: '홍길동',
     done: '상담이 접수되었습니다',
 };
 
